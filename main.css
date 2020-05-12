@@ -1,3 +1,20 @@
 body {
     background-color: whitesmoke;
 }
+
+/* Site title font */
+@font-face {
+    font-family: 'Celestia';
+    src: url('./fonts/Celestia.woff2') format('woff2'),
+        url('./fonts/Celestia.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#site-title {
+    font-family: 'Celestia';
+    font-size: 10rem;
+    text-align: center;
+    width: 100%;
+    margin: 2rem;
+}
