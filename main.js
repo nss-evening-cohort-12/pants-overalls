@@ -121,10 +121,43 @@ const items = [
     }
 ];
 
-// printToDom 
+
+// print to dom function
 const printToDom = (selector, textToPrint) => {
-    document.querySelector(selector).innerHTML = textToPrint;
-  };
+  let select = document.querySelector(selector)
+  if (select) {
+    select.innerHTML = textToPrint;
+  }
+};
+// end print to dom
+
+const buildChildCards = (arr) => {
+  let domString = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].category === 'Child') {   
+    domString += `
+                 <div class="card" style="width: 18rem;">
+                   <img class="card-img-top" src="${arr[i].imageUrl}" alt="Card image cap">
+                   <div class="card-body">
+                    <h5 class="card-title">${arr[i].name}</h5>
+                    <p class="card-text">${arr[i].description}</p>
+                   </div>
+                   <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${arr[i].availableColors}</li>
+                    <li class="list-group-item">${arr[i].availableSizes}</li>
+                    <li class="list-group-item">Price: $${arr[i].price}</li>
+                   </ul>
+                   <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                   </div>
+                 </div>`
+
+    }
+  } 
+  printToDom('#childCards', domString)
+}
+
 
 // Adult Card Container
 const buildAdultCards = (adultOveralls) => {
@@ -163,6 +196,7 @@ const randomNum = (max, min) => {
 
 const init = () => {
     buildAdultCards(items);
+    buildChildCards(items);
 }
 
 init();
