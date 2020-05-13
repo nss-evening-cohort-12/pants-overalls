@@ -138,9 +138,9 @@ const buildChildCards = (arr) => {
                     <p class="card-text">${arr[i].description}</p>
                    </div>
                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Price: $${arr[i].availableColors}</li>
+                    <li class="list-group-item">${arr[i].availableColors}</li>
                     <li class="list-group-item">${arr[i].availableSizes}</li>
-                    <li class="list-group-item">${arr[i].price}</li>
+                    <li class="list-group-item">Price: $${arr[i].price}</li>
                    </ul>
                    <div class="card-body">
                     <a href="#" class="card-link">Card link</a>
