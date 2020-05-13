@@ -13,8 +13,18 @@ body {
 
 #site-title {
     font-family: 'Celestia';
-    font-size: 10rem;
+    font-size: 10vw;
     text-align: center;
     width: 100%;
-    margin: 2rem;
+    margin: 2vw;
+}
+
+#covid-banner {
+    width: 100%;
+    height: 5vw;
+    text-align: center;
+    line-height: 5vw;
+    background-color: red;
+    color: white;
+    border: 1px 0 solid darkred;
 }
