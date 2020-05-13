@@ -132,15 +132,15 @@ const buildChildCards = (arr) => {
     if (arr[i].category === 'Child') {   
     domString += `
                  <div class="card" style="width: 18rem;">
-                   <img class="card-img-top" src="..." alt="Card image cap">
+                   <img class="card-img-top" src="${arr[i].imageUrl}" alt="Card image cap">
                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">${arr[i].name}</h5>
+                    <p class="card-text">${arr[i].description}</p>
                    </div>
                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">Price: $${arr[i].price}</li>
+                    <li class="list-group-item">${arr[i].availableColors}</li>
+                    <li class="list-group-item">${arr[i].availableSizes}</li>
                    </ul>
                    <div class="card-body">
                     <a href="#" class="card-link">Card link</a>
@@ -148,18 +148,18 @@ const buildChildCards = (arr) => {
                    </div>
                  </div>`
 
-  }
-}
-  
+    }
+  } 
   printToDom('#childCards', domString)
-
+}
 const clickEvents = () => {
   
 };
 
 const init = () => {
-  buildChildCards(items)
+buildChildCards(items)
   clickEvents();
+  
 };
 
 init();
