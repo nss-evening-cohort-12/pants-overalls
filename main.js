@@ -120,6 +120,7 @@ const items = [
         availableSizes: ['X-Small', 'Small', 'Medium', 'Large', 'X-Large', 'XX-Large']
     }
 ];
+
 // printToDom 
 const printToDom = (selector, textToPrint) => {
     document.querySelector(selector).innerHTML = textToPrint;
@@ -150,9 +151,18 @@ const buildAdultCards = (adultOveralls) => {
     printToDom('#adultCards', domString);
 }
 
+const buildFeaturedItems = () => {
+    for (let i=0, i < 2; i++) {
+        
+    }
+}
+
+const randomNum = (max, min) => {
+    return Math.floor(Math.random() * max) + min;
+} 
+
 const init = () => {
     buildAdultCards(items);
 }
 
 init();
-
