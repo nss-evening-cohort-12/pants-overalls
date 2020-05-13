@@ -122,7 +122,11 @@ const items = [
 ]
 // print to dom function
 const printToDom = (selector, textToPrint) => {
-  document.querySelector(selector).innerHTML = textToPrint;
+  let select = document.querySelector(selector)
+  if (select) {
+    select.innerHTML = textToPrint;
+    
+  }
 };
 // end print to dom
 
@@ -152,9 +156,6 @@ const buildChildCards = (arr) => {
   } 
   printToDom('#childCards', domString)
 }
-const clickEvents = () => {
-  
-};
 
 
 // Adult Card Container
@@ -184,7 +185,7 @@ const buildAdultCards = (adultOveralls) => {
 
 const init = () => {
     buildAdultCards(items);
-    buildChildCards(items)
+    buildChildCards(items);
 }
 
 init();
