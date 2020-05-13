@@ -18,3 +18,19 @@ body {
     width: 100%;
     margin: 2rem;
 }
+
+.kidsStyle{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px;
+  justify-content: center;
+}
+.card{
+  margin: 10px; 
+  text-align: center; 
+}
+.card-img-top{
+  width: 100%;
+  height: 300px;
+  object-fit: scale-down;
+}
