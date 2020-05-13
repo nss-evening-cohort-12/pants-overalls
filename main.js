@@ -156,10 +156,35 @@ const clickEvents = () => {
   
 };
 
+
+// Adult Card Container
+const buildAdultCards = (adultOveralls) => {
+    let domString = '';
+
+    for (let i = 0; i < adultOveralls.length; i++) {
+        if (adultOveralls[i].category === 'Adult') {
+        domString += `
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${adultOveralls[i].imageUrl}" alt="">
+        <div class="card-body">
+          <h5 class="card-title">${adultOveralls[i].name}</h5>
+          <p class="card-text">${adultOveralls[i].description}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">${adultOveralls[i].availableColors}</li>
+          <li class="list-group-item">${adultOveralls[i].availableSizes}</li>
+          <li class="list-group-item">${adultOveralls[i].price}</li>
+        </ul>
+        </div>
+        `;
+        }
+    }
+    printToDom('#adultCards', domString);
+}
+
 const init = () => {
-buildChildCards(items)
-  clickEvents();
-  
-};
+    buildAdultCards(items);
+    buildChildCards(items)
+}
 
 init();
