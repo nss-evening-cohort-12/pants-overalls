@@ -11,12 +11,31 @@ body {
     font-style: normal;
 }
 
+/* Secondary display font */
+@font-face {
+    font-family: 'Helvetica LT Std';
+    src: url('./fonts/HelveticaLTStd-BoldCond.woff2') format('woff2'),
+        url('./fonts/HelveticaLTStd-BoldCond.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 #site-title {
     font-family: 'Celestia';
-    font-size: 10rem;
+    font-size: 10vw;
     text-align: center;
     width: 100%;
-    margin: 2rem;
+    margin: 2vw;
+}
+
+#covid-banner {
+    width: 100%;
+    height: 5vw;
+    text-align: center;
+    line-height: 5vw;
+    background-color: red;
+    color: white;
+    border: 1px 0 solid darkred;
 }
 
 .kidsStyle{
@@ -34,3 +53,121 @@ body {
   height: 300px;
   object-fit: scale-down;
 }
+
+
+/* ---index.html--- */
+.carousel {
+    margin: 0 auto 5vw;
+    width: 80vw;
+}
+
+.carousel-inner {
+    margin: auto;
+}
+
+.carousel-item {
+    background-color: darkslateblue;
+    height: 500px;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    margin: 0;
+    animation: upAndDown 20s infinite;
+}
+
+@keyframes upAndDown {
+    50% {object-position: bottom;}
+  }
+
+.carousel-caption {
+    width: 30% !important;
+    padding-right: 5rem;
+    left: 52% !important;
+}
+
+.carousel-caption h2 {
+    font-family: 'Helvetica LT Std';
+    text-align: left;
+    font-size: 6vw !important;
+    line-height: 5vw;
+    color:#6a5db8;
+    text-transform: uppercase;
+}
+
+.carousel-indicators {
+    justify-content: flex-end !important;
+}
+
+#categories {
+    margin: 0 auto 5vw;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#adult-link {
+    background-image: url('https://www1.assets-gap.com/webcontent/0018/440/133/cn18440133.jpg'); 
+    background-position: top; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 25vw;
+    width: 49%;
+    text-align: center;
+}
+
+#adult-link a {
+    text-decoration: none;
+}
+
+#adult-link p {
+    height: 25vw;
+    line-height: 7vw;
+    font-family: 'Helvetica LT Std';
+    font-size: 8vw;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(185, 42, 42);
+    mix-blend-mode: multiply;
+    margin:0;
+    padding-top:15vw;
+}
+
+#kids-link {
+    background-image: url('https://www1.assets-gap.com/webcontent/0018/420/770/cn18420770.jpg'); 
+    background-position: top; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 25vw;
+    width: 49%;
+    text-align: center;
+}
+
+#kids-link a {
+    text-decoration: none;
+}
+
+#kids-link p {
+    height: 25vw;
+    line-height: 7vw;
+    font-family: 'Helvetica LT Std';
+    font-size: 8vw;
+    text-decoration: none;
+    color:white;
+    background-color: rgb(252, 184, 11);
+    mix-blend-mode: multiply;
+    margin:0;
+    padding-top:15vw;
+}
+
+
+.subheading {
+    font-family: 'Helvetica LT Std';
+    color:lightgrey;
+    margin: 0 auto;
+    width: 80vw;
+}
+
+/* ---end index.html--- */
