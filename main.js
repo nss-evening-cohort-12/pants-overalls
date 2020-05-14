@@ -61,7 +61,7 @@ const items = [
     },
     {
         itemId: 7,
-        name: 'Distressed Let-Down Hem Jean Overalls for Girls',
+        name: 'Distressed Jean Overalls for Girls',
         imageUrl: 'https://www1.assets-gap.com/webcontent/0017/636/886/cn17636886.jpg',
         price: 16.97,
         category: 'Child',
@@ -91,7 +91,7 @@ const items = [
     },
     {
         itemId: 10,
-        name: 'Mossy Oak Break-Up Camo Boys Overalls',
+        name: 'Break-Up Camo Boys Overalls',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0388/0957/products/youth-boys-american-made-realtree-ap-bib-overalls-made-in-usa_a9f98b94-247d-4266-9f77-c6682da243a5.jpg',
         price: 29.95,
         category: 'Child',
@@ -119,13 +119,14 @@ const items = [
         availableColors: ['Lunar Wash'], 
         availableSizes: ['X-Small', 'Small', 'Medium', 'Large', 'X-Large', 'XX-Large']
     }
-]
+];
+
+
 // print to dom function
 const printToDom = (selector, textToPrint) => {
   let select = document.querySelector(selector)
   if (select) {
     select.innerHTML = textToPrint;
-    
   }
 };
 // end print to dom
@@ -183,9 +184,62 @@ const buildAdultCards = (adultOveralls) => {
     printToDom('#adultCards', domString);
 }
 
+const randomNum = (max) => {
+    return Math.floor(Math.random() * max);
+} 
+
+//creates the domstring for the featured items bootstrap carousel
+const buildFeaturedItems = () => {
+    // random numbers array
+    let randomNums = [];
+    //push 5 random numbers to randomNums array
+    let i=0; 
+    do {
+        let generatedNumber = randomNum(items.length);
+        if (randomNums.indexOf(generatedNumber) == -1) {
+            randomNums.push(generatedNumber);
+            i++;
+        }
+    } while ( i < 5);
+    
+    let domString = '<ol class="carousel-indicators">';
+    
+    for (let i=0; i < 5; i++) {
+        domString += `<li data-target="#featured-items" data-slide-to="${i}" ${i == 0 ? `class="active"`:``}></li>`;
+    }
+    
+    domString += `</ol>`;
+    
+    domString += `<div class="carousel-inner">`;
+    
+    //loop to generate cards for carousel
+    for (let i=0; i < 5; i++) {
+        domString +=  `
+                <div class="carousel-item${(i == 0) ? ` active` : ``}">
+                <img src="${items[randomNums[i]].imageUrl}" class="d-block w-50 float-left" alt="...">
+                <div class="carousel-caption d-none d-md-block w-50">
+                    <h2>${items[randomNums[i]].name}</h2>
+                </div>
+                </div>`;
+        }
+        domString += `
+        </div>
+            <a class="carousel-control-prev" href="#featured-items" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#featured-items" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>`;
+        printToDom("#featured-items", domString);
+}
+
 const init = () => {
     buildAdultCards(items);
     buildChildCards(items);
+    buildFeaturedItems();
 }
 
 init();
