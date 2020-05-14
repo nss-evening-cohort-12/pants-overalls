@@ -36,6 +36,27 @@
     <!-- navbar end -->
     <h1 id="site-title">Children</h1>
     <div id="childCards" class="kidsStyle"></div>
+    <!-- added review form -->
+    <form method="post" action="//submit.form" onSubmit="return validateForm();">
+      <h2>Reviews</h2>
+      <div >Reviewer<span style="color: red;"> *</span><br/>
+      <input type="text" id="data_2" name="data_2" style="max-width : 450px;" class="form-control"/>
+      </div>
+      <div >Which product did you buy?<br/>
+      <input type="text" id="data_10" name="data_10" style="max-width : 450px;" class="form-control"/>
+      </div>
+      <div >Review<span style="color: red;"> *</span><br/>
+      <textarea id="data_8" false name="data_8" style="max-width : 450px;" rows="9" class="form-control"></textarea>
+      </div>
+      <div >Would you recommend this product?<br/>
+      <span><input type="radio" id="data_9_0" name="data_9" value="Yes"/> Yes</span><br/>
+      <span><input type="radio" id="data_9_1" name="data_9" value="No"/> No</span><br/>
+      <span><input type="radio" id="data_9_2" name="data_9" value="I am not sure"/> I am not sure</span><br/>
+      </div>
+      <div ><input name="skip_Submit" value="Submit" type="submit"/></div>
+      <div>    
+      </div>
+    </form>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
