@@ -91,7 +91,7 @@ body {
 .carousel-caption h2 {
     font-family: 'Helvetica LT Std';
     text-align: left;
-    font-size: 6vw !important;
+    font-size: clamp(50px, 5vw, 125px) !important;
     line-height: 5vw;
     color:#6a5db8;
     text-transform: uppercase;
