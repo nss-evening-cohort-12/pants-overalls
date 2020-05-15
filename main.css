@@ -244,3 +244,12 @@ body {
 }
 
 /* ---end index.html--- */
+/* ---about.html---*/
+.about img {
+    height: 300px;
+    width: 300px;
+    padding: 8px;
+    margin: 4px;
+    float: left;
+
+}
