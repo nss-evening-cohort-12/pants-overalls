@@ -116,6 +116,9 @@ body {
 .starRating{
   float: left;
 }
+.checked{
+  color: #FFD700;
+}
 /* end form */
 /* ---index.html--- */
 .carousel {
