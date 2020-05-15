@@ -120,7 +120,44 @@ const items = [
         availableSizes: ['X-Small', 'Small', 'Medium', 'Large', 'X-Large', 'XX-Large']
     }
 ];
-
+const reviews = [
+  {
+    name:'Tom Hanks',
+    review:'The variety is small but the quality makes up for it in the end. The clothing cost are reasonable. I really like the overall style for casual wear that has some accented urban wear tones within some of their high end pieces.',
+    stars: `<span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>`,
+  },
+  {
+    name:'Mary',
+    review:'',
+    stars: `<span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>`,
+  },
+  {
+    name:'Oprah',
+    review:'Outstanding customer service, especially Jessica',
+    stars: `<span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>`,
+  },
+  {
+    name:'Jonas Brothers',
+    review:`Best Overalls ever. We can't wait to wear them on the next red carpet event.`,
+    stars: `<span class="fa fa-star checked"></>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>`,
+  },
+]
 
 // print to dom function
 const printToDom = (selector, textToPrint) => {
@@ -130,6 +167,23 @@ const printToDom = (selector, textToPrint) => {
   }
 };
 // end print to dom
+const buildRatingCards = (arr) => {
+  let domString = "";
+  for (let i = 0; i < arr.length; i++) {
+       
+    domString += `
+                 <div class="card" style="width: 15rem;">
+                  <h2 class="card-title">${arr[i].name}</h2>
+                  <div class="card-body">
+                   <h5 class="card-title">${arr[i].stars}</h5>
+                   <p>${arr[i].review}</p>
+                  </div>
+                 </div>`
+
+    
+  } 
+  printToDom('#reviewsContainer', domString)
+}
 
 const buildChildCards = (arr) => {
   let domString = "";
@@ -240,6 +294,7 @@ const init = () => {
     buildAdultCards(items);
     buildChildCards(items);
     buildFeaturedItems();
+    buildRatingCards(reviews);
 }
 
 init();
