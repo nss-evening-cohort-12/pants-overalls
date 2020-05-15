@@ -37,12 +37,13 @@ body {
     color: white;
     border: 1px 0 solid darkred;
 }
-
+/* start of  categories */
 .kidsStyle{
   display: flex;
   flex-flow: row wrap;
   margin: 10px;
   justify-content: center;
+  
 }
 .card{
   margin: 10px; 
@@ -53,8 +54,69 @@ body {
   height: 300px;
   object-fit: scale-down;
 }
+.cardContainer{
+  border-bottom: 2px solid gray;
+}
+/* end categories */
+/* start form */
+.formContainer{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+.review{
+  width: 50%;
+}
+.txt-center {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
 
+.clear {
+  float: none;
+  clear: both;
+}
 
+.rating {
+  width: 90px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative;
+}
+
+.rating > label {
+  float: right;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
+  color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+  color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+}
+.starRating{
+  float: left;
+}
+/* end form */
 /* ---index.html--- */
 .carousel {
     margin: 0 auto 5vw;
