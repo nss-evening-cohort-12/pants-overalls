@@ -141,21 +141,21 @@ const reviews = [
   },
   {
     name:'Oprah',
-    review:'Very highly customer service, especially Jessica',
+    review:'Outstanding customer service, especially Jessica',
     stars: `<span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>`,
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>`,
   },
   {
     name:'Jonas Brothers',
-    review:'',
-    stars: `<span class="fa fa-star checked"></span>
+    review:`Best Overalls ever. We can't wait to wear them on the next red carpet event.`,
+    stars: `<span class="fa fa-star checked"></>
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>`,
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>`,
   },
 ]
 
@@ -172,8 +172,8 @@ const buildRatingCards = (arr) => {
   for (let i = 0; i < arr.length; i++) {
        
     domString += `
-                 <div class="card" style="width: 18rem;">
-                  <h2 class="card-title">${arr[i].Name}</h2>
+                 <div class="card" style="width: 15rem;">
+                  <h2 class="card-title">${arr[i].name}</h2>
                   <div class="card-body">
                    <h5 class="card-title">${arr[i].stars}</h5>
                    <p>${arr[i].review}</p>
