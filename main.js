@@ -6,7 +6,7 @@ const items = [
         price: 47.99,
         category: 'Adult',
         description: 'Get the job done in our Boulder Creek® Denim Overalls, built for functionality and efficiency. These overalls feature a double compartment bib front, back patch, a single hammer loop and metal button closures at side.',
-        availableColors: ['Blue'], 
+        availableColors: [ { color: 'Blue', swatch: 'https://d29pz51ispcyrv.cloudfront.net/images/I/3qkVunGyJiW0QRJQygadpo.MD256.jpg' } ], 
         availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
@@ -16,7 +16,7 @@ const items = [
         price: 38.50,
         category: 'Adult',
         description: '95% Cotton And 5% Polyester. Slim Fit Rigid Denim Dungarees.',
-        availableColors: ['Light Blue', 'Navy', 'Black'], 
+        availableColors: [{color: 'Navy', swatch: 'https://d1m9wsh695jb3b.cloudfront.net/products/1234/swatches/1mwcoxjzmhp47o4579ly5e24.jpg'}, {color: 'Black', swatch: 'https://d1m9wsh695jb3b.cloudfront.net/products/1234/swatches/hbxn31dz5rpdbmz1qpdi3zvr.jpg'}], 
         availableSizes: ['M', 'L', 'XL']
     },
     {
@@ -26,7 +26,7 @@ const items = [
         price: 52.00,
         category: 'Adult',
         description: 'These Wide-Leg Overalls will make your day a little extra fun! Lightweight linen-blend fabric falls from adjustable tank straps, with marbled brown buttons, into a bib front with patch pocket. Breezy, relaxed wide-leg pants have slightly cropped hems.',
-        availableColors: ['Olive Green', 'Beige'], 
+        availableColors: [{color: 'Olive Green', swatch: 'https://i.etsystatic.com/8483244/r/il/ac96d1/1134300798/il_1588xN.1134300798_npw4.jpg'}, {color: 'Beige', swatch: 'https://www.onlinefabricstore.net/images/product-images/xl/172514_1.jpg'}], 
         availableSizes: ['XS', 'S', 'M', 'L']
     },
     {
@@ -36,7 +36,8 @@ const items = [
         price: 125.00,
         category: 'Adult',
         description: 'Perfectly casual overalls for all your summer outings. Sub-textured weave offers stretchy, lightweight comfort. Washed down fabric delivers a well-loved look and feel. Lots of pockets give you plenty of places to stash stuff',
-        availableColors: ['Duck Green Vintage Wash', 'Falcon Brown'], 
+        image: 'https://i.etsystatic.com/8483244/r/il/ac96d1/1134300798/il_1588xN.1134300798_npw4.jpg',
+        availableColors: [{color: 'Duck Green', swatch: 'https://i.etsystatic.com/8483244/r/il/ac96d1/1134300798/il_1588xN.1134300798_npw4.jpg'}, {color: 'Falcon Brown', swatch: 'https://d1m9wsh695jb3b.cloudfront.net/products/1234/swatches/ezlpmtr9gcg78jkd6gdmb9bzisia.jpg'}], 
         availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
@@ -46,7 +47,7 @@ const items = [
         price: 69.00,
         category: 'Adult',
         description: 'Heavy stone wash on fabric for a vintage worn look. Yarn-dyed stripes on front. Zip-up pocket on chest. Belt loops on waist',
-        availableColors: ['Quicksilver Pattern'], 
+        availableColors: [{color: 'Quicksilver Pattern', swatch: 'https://images.boardriders.com/globalGrey/quiksilver-products/all/default/hi-res/eqwnp03005_herdungarees,w_wcl6_frt1.jpg' }], 
         availableSizes: ['M', 'XL']
     },
     {
@@ -56,7 +57,7 @@ const items = [
         price: 49.99,
         category: 'Adult',
         description: 'Casual Style with ripped details in the legs. Skinny Fit with a slight stretch. Mid-waist with a button fly.',
-        availableColors: ['Blue', 'Black'], 
+        availableColors: [{color: 'Blue', swatch: 'https://d29pz51ispcyrv.cloudfront.net/images/I/3qkVunGyJiW0QRJQygadpo.MD256.jpg'}, {color: 'Black', swatch: 'https://d1m9wsh695jb3b.cloudfront.net/products/1234/swatches/hbxn31dz5rpdbmz1qpdi3zvr.jpg'}], 
         availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
@@ -66,7 +67,7 @@ const items = [
         price: 16.97,
         category: 'Child',
         description: 'Shoulder straps, with adjustable button-hole tabs attach to buttons at front yoke. Bib-patch pocket across front.',
-        availableColors: ['Distressed Denim'], 
+        availableColors: [{color: 'Distressed Denim', swatch: 'https://www1.assets-gap.com/webcontent/0017/636/886/cn17636886.jpg'}], 
         availableSizes: ['XS', 'S', 'M']
     },
     {
@@ -76,7 +77,7 @@ const items = [
         price: 32.99,
         category: 'Child',
         description: 'A pair of denim overalls featuring a front bib pocket, adjustable shoulder straps, belt loops, button sides, front zipper accents, front pockets, and back patch pockets',
-        availableColors: ['Acid Wash'], 
+        availableColors: [{color: 'Acid Wash', swatch: 'https://images.prod.meredith.com/product/ab5cc0a84936d2bd9ed2b85728e3d6f6/1521346361856/l/girls-denim-overalls-kids'}], 
         availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
@@ -86,7 +87,7 @@ const items = [
         price: 39.95,
         category: 'Child',
         description: 'Non-stretch denim. Straps with knot ends. Square neckline, racerback. Button front, faux fly. Front slant pockets, back patch pockets.',
-        availableColors: ['Pure Pink'], 
+        availableColors: [{color: 'Pure Pink', swatch: 'https://i.etsystatic.com/5383515/r/il/6c7056/1167124311/il_1588xN.1167124311_atg6.jpg'}], 
         availableSizes: ['18-24 Mths', '2 Yrs', '3 Yrs', '4 Yrs']
     },
     {
@@ -96,7 +97,7 @@ const items = [
         price: 29.95,
         category: 'Child',
         description: `Make sure your boys wear American Made camo with the craftsmanship of 111 years of experience behind it. Boys will love hunting with Dad in one of America's most beloved camo patterns, Mossy Oak Break-Up.`,
-        availableColors: ['Mossy-Oak Break Up'], 
+        availableColors: [{color: 'Mossy-Oak Break Up', swatch: 'https://cdn.shopify.com/s/files/1/0388/0957/products/youth-boys-american-made-realtree-ap-bib-overalls-made-in-usa_a9f98b94-247d-4266-9f77-c6682da243a5.jpg'}], 
         availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
@@ -106,7 +107,7 @@ const items = [
         price: 31.04,
         category: 'Adult',
         description: 'Plain sleeveless overalls. Made of 100% Polyester.',
-        availableColors: ['Yellow', 'Black'], 
+        availableColors: [{color: 'Yellow', swatch: 'https://cdn11.bigcommerce.com/s-r14v4z7cjw/images/stencil/256x256/attribute_value_images/2060945.preview.jpg?t=1570116780'}, {color: 'Black', swatch: 'https://d1m9wsh695jb3b.cloudfront.net/products/1234/swatches/hbxn31dz5rpdbmz1qpdi3zvr.jpg'}], 
         availableSizes: ['M', 'L', 'XL', 'XXL']
     },
     {
@@ -116,10 +117,11 @@ const items = [
         price: 79.97,
         category: 'Adult',
         description: 'Classic denim overalls in a solid dark wash deliver easy-wear comfort and casual style.',
-        availableColors: ['Lunar Wash'], 
+        availableColors: [{color: 'Lunar Wash', swatch: 'https://www.hautelookcdn.com/products/AA598/large/12926258.jpg'}], 
         availableSizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL']
     }
 ];
+
 const reviews = [
   {
     name:'Tom Hanks',
@@ -218,36 +220,46 @@ const buildAdultCards = (adultOveralls) => {
     let domString = '';
 
     for (let i = 0; i < adultOveralls.length; i++) {
-        if (adultOveralls[i].category === 'Adult') {
-        domString += `
-        <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="${adultOveralls[i].imageUrl}" alt="">
-        <div class="card-body">
-          <h5 class="card-title">${adultOveralls[i].name}</h5>
-          <p class="card-text">${adultOveralls[i].description}</p>
-        </div>
-        <form class="add-to-cart-form"> 
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">${adultOveralls[i].availableColors}</li>
-          <li class="list-group-item">
-          `
-          adultOveralls[i].availableSizes.forEach(size => {
-            domString += `
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="selectedSize" value="${size}">
-              <label class="form-check-label" for="selectedSize">${size}</label>
-            </div>
-            `
-          });
+      if (adultOveralls[i].category === 'Adult') {
+        domString += `<div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="${adultOveralls[i].imageUrl}" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">${adultOveralls[i].name}</h5>
+                        <p class="card-text">${adultOveralls[i].description}</p>
+                      </div>
+                      <form class="add-to-cart-form"> 
+                      <ul class="list-group list-group-flush">
+                      <li class="list-group-item">`
+
+        adultOveralls[i].availableColors.forEach(color => {
+          domString += `<div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="selectedColor" value="${color.color}">
+                          <label class="form-check-label" for="selectedColor">
+                          <img class="color-swatches" src="${color.swatch}">
+                          </label>
+                        </div>`  
+        });
+
+        domString += `</li>
+                      <li class="list-group-item">`
+
+
+        adultOveralls[i].availableSizes.forEach(size => {
+        domString += `<div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="selectedSize" value="${size}">
+                        <label class="form-check-label" for="selectedSize">${size}</label>
+                      </div>`
+        });
+
         domString += `  
           </li>
           <li class="list-group-item">$${adultOveralls[i].price.toFixed(2)}</li>
-          <li class="list-group-item"><button type="submit" id="add-to-cart" class="btn btn-primary">Add to Cart</button></li>
+          <li class="list-group-item"><button type="submit" class="btn btn-primary add-to-cart">Add to Cart</button></li>
         </ul>
-        <input type="hidden" name="item-price" value="${adultOveralls[i].price.toFixed(2)}">
+        <input type="hidden" name="itemId" value="${adultOveralls[i].itemId}">
         </form>
         </div>
-        `;
+        `
         }
     }
     printToDom('#adultCards', domString);
@@ -306,13 +318,18 @@ const buildFeaturedItems = () => {
 }
 
 //callback function for add to cart submit button
-
+const addToCart = (event) => {
+  console.log('Item Added To Cart');
+  return false;
+}
 
 //event listener for add to cart forms
-const cartListener = () => {
-  document.querySelectorAll('.add-to-cart').forEach(item => {
-    item.addEventListener('click', addToCart)
-  })
+const cartListeners = () => {
+  document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('add-to-cart')) {
+        addToCart();
+    }
+}, false);
 }
 
 const init = () => {
@@ -320,6 +337,7 @@ const init = () => {
     buildChildCards(items);
     buildFeaturedItems();
     buildRatingCards(reviews);
+    cartListeners();
 }
 
 init();
