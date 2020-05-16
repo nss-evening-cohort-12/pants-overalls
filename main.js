@@ -7,7 +7,7 @@ const items = [
         category: 'Adult',
         description: 'Get the job done in our Boulder Creek® Denim Overalls, built for functionality and efficiency. These overalls feature a double compartment bib front, back patch, a single hammer loop and metal button closures at side.',
         availableColors: ['Blue'], 
-        availableSizes: ['Small', 'Medium', 'Large', 'X-Large']
+        availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
         itemId: 2,
@@ -17,7 +17,7 @@ const items = [
         category: 'Adult',
         description: '95% Cotton And 5% Polyester. Slim Fit Rigid Denim Dungarees.',
         availableColors: ['Light Blue', 'Navy', 'Black'], 
-        availableSizes: ['Medium', 'Large', 'X-Large']
+        availableSizes: ['M', 'L', 'XL']
     },
     {
         itemId: 3,
@@ -27,7 +27,7 @@ const items = [
         category: 'Adult',
         description: 'These Wide-Leg Overalls will make your day a little extra fun! Lightweight linen-blend fabric falls from adjustable tank straps, with marbled brown buttons, into a bib front with patch pocket. Breezy, relaxed wide-leg pants have slightly cropped hems.',
         availableColors: ['Olive Green', 'Beige'], 
-        availableSizes: ['X-Small', 'Small', 'Medium', 'Large']
+        availableSizes: ['XS', 'S', 'M', 'L']
     },
     {
         itemId: 4,
@@ -37,7 +37,7 @@ const items = [
         category: 'Adult',
         description: 'Perfectly casual overalls for all your summer outings. Sub-textured weave offers stretchy, lightweight comfort. Washed down fabric delivers a well-loved look and feel. Lots of pockets give you plenty of places to stash stuff',
         availableColors: ['Duck Green Vintage Wash', 'Falcon Brown'], 
-        availableSizes: ['Small', 'Medium', 'Large', 'X-Large']
+        availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
         itemId: 5,
@@ -47,7 +47,7 @@ const items = [
         category: 'Adult',
         description: 'Heavy stone wash on fabric for a vintage worn look. Yarn-dyed stripes on front. Zip-up pocket on chest. Belt loops on waist',
         availableColors: ['Quicksilver Pattern'], 
-        availableSizes: ['Medium', 'X-Large']
+        availableSizes: ['M', 'XL']
     },
     {
         itemId: 6,
@@ -57,7 +57,7 @@ const items = [
         category: 'Adult',
         description: 'Casual Style with ripped details in the legs. Skinny Fit with a slight stretch. Mid-waist with a button fly.',
         availableColors: ['Blue', 'Black'], 
-        availableSizes: ['Small', 'Medium', 'Large', 'X-Large']
+        availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
         itemId: 7,
@@ -67,7 +67,7 @@ const items = [
         category: 'Child',
         description: 'Shoulder straps, with adjustable button-hole tabs attach to buttons at front yoke. Bib-patch pocket across front.',
         availableColors: ['Distressed Denim'], 
-        availableSizes: ['X-Small', 'Small', 'Medium']
+        availableSizes: ['XS', 'S', 'M']
     },
     {
         itemId: 8,
@@ -77,7 +77,7 @@ const items = [
         category: 'Child',
         description: 'A pair of denim overalls featuring a front bib pocket, adjustable shoulder straps, belt loops, button sides, front zipper accents, front pockets, and back patch pockets',
         availableColors: ['Acid Wash'], 
-        availableSizes: ['Small', 'Medium', 'Large', 'X-Large']
+        availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
         itemId: 9,
@@ -87,7 +87,7 @@ const items = [
         category: 'Child',
         description: 'Non-stretch denim. Straps with knot ends. Square neckline, racerback. Button front, faux fly. Front slant pockets, back patch pockets.',
         availableColors: ['Pure Pink'], 
-        availableSizes: ['18-24 Months', '2 Years', '3 Years', '4 Years']
+        availableSizes: ['18-24 Mths', '2 Yrs', '3 Yrs', '4 Yrs']
     },
     {
         itemId: 10,
@@ -97,7 +97,7 @@ const items = [
         category: 'Child',
         description: `Make sure your boys wear American Made camo with the craftsmanship of 111 years of experience behind it. Boys will love hunting with Dad in one of America's most beloved camo patterns, Mossy Oak Break-Up.`,
         availableColors: ['Mossy-Oak Break Up'], 
-        availableSizes: ['Small', 'Medium', 'Large', 'X-Large']
+        availableSizes: ['S', 'M', 'L', 'XL']
     },
     {
         itemId: 11,
@@ -107,7 +107,7 @@ const items = [
         category: 'Adult',
         description: 'Plain sleeveless overalls. Made of 100% Polyester.',
         availableColors: ['Yellow', 'Black'], 
-        availableSizes: ['Medium', 'Large', 'X-Large', 'XX-Large']
+        availableSizes: ['M', 'L', 'XL', 'XXL']
     },
     {
         itemId: 12,
@@ -117,7 +117,7 @@ const items = [
         category: 'Adult',
         description: 'Classic denim overalls in a solid dark wash deliver easy-wear comfort and casual style.',
         availableColors: ['Lunar Wash'], 
-        availableSizes: ['X-Small', 'Small', 'Medium', 'Large', 'X-Large', 'XX-Large']
+        availableSizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL']
     }
 ];
 const reviews = [
@@ -226,11 +226,26 @@ const buildAdultCards = (adultOveralls) => {
           <h5 class="card-title">${adultOveralls[i].name}</h5>
           <p class="card-text">${adultOveralls[i].description}</p>
         </div>
+        <form class="add-to-cart-form"> 
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${adultOveralls[i].availableColors}</li>
-          <li class="list-group-item">${adultOveralls[i].availableSizes}</li>
-          <li class="list-group-item">${adultOveralls[i].price}</li>
+          <li class="list-group-item">
+          `
+          adultOveralls[i].availableSizes.forEach(size => {
+            domString += `
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="selectedSize" value="${size}">
+              <label class="form-check-label" for="selectedSize">${size}</label>
+            </div>
+            `
+          });
+        domString += `  
+          </li>
+          <li class="list-group-item">$${adultOveralls[i].price.toFixed(2)}</li>
+          <li class="list-group-item"><button type="submit" id="add-to-cart" class="btn btn-primary">Add to Cart</button></li>
         </ul>
+        <input type="hidden" name="item-price" value="${adultOveralls[i].price.toFixed(2)}">
+        </form>
         </div>
         `;
         }
@@ -288,6 +303,16 @@ const buildFeaturedItems = () => {
             </a>
         </div>`;
         printToDom("#featured-items", domString);
+}
+
+//callback function for add to cart submit button
+
+
+//event listener for add to cart forms
+const cartListener = () => {
+  document.querySelectorAll('.add-to-cart').forEach(item => {
+    item.addEventListener('click', addToCart)
+  })
 }
 
 const init = () => {
