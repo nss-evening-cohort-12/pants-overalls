@@ -251,5 +251,81 @@ body {
     padding: 8px;
     margin: 4px;
     float: left;
-
 }
+/* ---end about.html---*/
+/* ---Begin Footer---*/
+#footer {
+    width: 100%;
+    height: fit-content;
+    background-color: #333133;
+    color: #B5B3B8;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10vh 10vw;
+}
+
+.footer-links, .payment-types, .social-icons {
+    margin-left: -40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-links, .payment-types, .social-icons li {
+    list-style-type: none;
+}
+
+.footer-links a {
+    text-decoration: none; 
+    color: #B5B3B8;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-links {
+    flex: 1 1 100%;
+}
+
+.payment-types {
+    width: 50%;
+    margin: 5vh auto;
+}
+
+.social-icons {
+    width: 20%;
+    margin: 5vh auto
+}
+
+.social-icons svg {
+    width: 2rem;
+    fill:lightgray;
+}
+
+.copyright {
+    flex: 1 1 100%;
+    text-align: center;
+}
+/* ---End Footer---*/
+/* ---contact.html---*/
+.contact-bar {
+    min-width: 696px;
+	list-style: none;
+    padding-top: 20px;
+    text-align: center;
+}
+.contact-bar li {
+    display: inline;
+    padding-right: 15px;
+ }
+ .top-social-icons{
+    color: #333133;
+    width: 20%;
+    margin: 5vh auto;
+    text-align: center;
+    list-style-type: none;
+    
+ }
