@@ -54,10 +54,20 @@ body {
   height: 300px;
   object-fit: scale-down;
 }
+.card-img-top {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: top;
+}
 .cardContainer{
   border-bottom: 2px solid gray;
 }
 /* end categories */
+/* sort filter button */
+.dropdown{
+  margin-left: 20px;
+}
 /* start form */
 .formContainer{
   display: flex;
