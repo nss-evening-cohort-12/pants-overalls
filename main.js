@@ -289,12 +289,55 @@ const buildFeaturedItems = () => {
         </div>`;
         printToDom("#featured-items", domString);
 }
+// price filter event
+const filterPrice = () => {
+  const buttonId = event.target.id
+
+  if (buttonId === 'lowHigh'){
+    function compare(a,b){
+      const priceA = a.price;
+      const priceB = b.price;
+      
+      let comparison = 0;
+      if (priceA > priceB) {
+          comparison = 1;
+      } else if (priceA < priceB) {
+          comparison = -1;
+      }
+      return comparison;
+      }
+      items.sort(compare)
+  } else if (buttonId === 'highLow'){
+    function compareHigh(a,b){
+      const priceA = a.price;
+      const priceB = b.price;
+      
+      let comparison = 0;
+      if (priceB > priceA) {
+          comparison = 1;
+      } else if (priceB < priceA) {
+          comparison = -1;
+      }
+      return comparison;
+      }
+      items.sort(compareHigh)
+  }
+  buildChildCards(items);
+  buildAdultCards(items);
+}
+
+
+const clickEvents = () => {
+  document.querySelector('#lowHigh').addEventListener('click', filterPrice );
+  document.querySelector('#highLow').addEventListener('click', filterPrice );
+ };
 
 const init = () => {
     buildAdultCards(items);
     buildChildCards(items);
     buildFeaturedItems();
     buildRatingCards(reviews);
+    clickEvents();
 }
 
 init();
