@@ -254,7 +254,7 @@ const buildAdultCards = (adultOveralls) => {
         domString += `  
           </li>
           <li class="list-group-item">$${adultOveralls[i].price.toFixed(2)}</li>
-          <li class="list-group-item"><button type="submit" class="btn btn-primary add-to-cart">Add to Cart</button></li>
+          <li class="list-group-item"><button type="submit" id="button${adultOveralls[i].itemId}" class="btn btn-primary add-to-cart">Add to Cart</button></li>
         </ul>
         <input type="hidden" name="itemId" value="${adultOveralls[i].itemId}">
         </form>
@@ -361,17 +361,28 @@ const clickEvents = () => {
 
 //callback function for add to cart submit button
 const addToCart = (event) => {
-  console.log('Item Added To Cart');
+  event.preventDefault();
+
+  //create object from form data
+  const addedItem = { 
+    itemId: event.target.elements.itemId.value,
+    itemName: items.find(item => item.itemId == event.target.elements.itemId.value).name,
+    selectedColor: event.target.elements.selectedColor.value,
+    selectedSize: event.target.elements.selectedSize.value
+  }
+
+  localStorage.setItem('item', JSON.stringify(addedItem));
+  document.querySelector('#button' + event.target.elements.itemId.value).innerHTML = 'Added to Cart!';
   return false;
 }
 
 //event listener for add to cart forms
 const cartListeners = () => {
-  document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('add-to-cart')) {
-        addToCart();
+  document.addEventListener('submit', function (event) {
+    if (event.target.classList.contains('add-to-cart-form')) {
+        addToCart(event);
     }
-}, false);
+  }, false);
 }
 
 const init = () => {
