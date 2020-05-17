@@ -334,3 +334,14 @@ body {
   border: 1px solid #999;
   padding: 1px; 
 }
+
+#shopping-cart-icon {
+  height: 2rem;
+  fill: white;
+  margin-top: .4rem;
+}
+
+#cart-count {
+  vertical-align: top;
+    margin-left: -1.3rem; 
+}

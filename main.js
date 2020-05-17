@@ -118,7 +118,7 @@ const items = [
         category: 'Adult',
         description: 'Classic denim overalls in a solid dark wash deliver easy-wear comfort and casual style.',
         availableColors: [{color: 'Lunar Wash', swatch: 'https://www.hautelookcdn.com/products/AA598/large/12926258.jpg'}], 
-        availableSizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+        availableSizes: ['S', 'M', 'L', 'XL', 'XXL']
     }
 ];
 
@@ -169,6 +169,7 @@ const printToDom = (selector, textToPrint) => {
   }
 };
 // end print to dom
+
 const buildRatingCards = (arr) => {
   let domString = "";
   for (let i = 0; i < arr.length; i++) {
@@ -187,51 +188,75 @@ const buildRatingCards = (arr) => {
   printToDom('#reviewsContainer', domString)
 }
 
-const buildChildCards = (arr) => {
-  let domString = "";
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].category === 'Child') {   
-    domString += `
-                 <div class="card" style="width: 18rem;">
-                   <img class="card-img-top" src="${arr[i].imageUrl}" alt="Card image cap">
-                   <div class="card-body">
-                    <h5 class="card-title">${arr[i].name}</h5>
-                    <p class="card-text">${arr[i].description}</p>
-                   </div>
-                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${arr[i].availableColors}</li>
-                    <li class="list-group-item">${arr[i].availableSizes}</li>
-                    <li class="list-group-item">Price: $${arr[i].price}</li>
-                   </ul>
-                   <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                   </div>
-                 </div>`
 
-    }
-  } 
-  printToDom('#childCards', domString)
+const buildChildCards = (array) => {
+  let domString = "";
+  for (let i = 0; i < array.length; i++) {
+      
+    if (array[i].category === 'Child') {
+      domString += `<div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="${array[i].imageUrl}" alt="">
+                    <div class="card-body">
+                      <h5 class="card-title">${array[i].name}</h5>
+                      <p class="card-text">${array[i].description}</p>
+                    </div>
+                    <form class="add-to-cart-form"> 
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">`
+
+      array[i].availableColors.forEach(color => {
+        domString += `<div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="selectedColor" value="${color.color}">
+                        <label class="form-check-label" for="selectedColor">
+                        <img class="color-swatches" src="${color.swatch}">
+                        </label>
+                      </div>`  
+      });
+
+      domString += `</li>
+                    <li class="list-group-item">`
+
+
+      array[i].availableSizes.forEach(size => {
+      domString += `<div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="selectedSize" value="${size}">
+                      <label class="form-check-label" for="selectedSize">${size}</label>
+                    </div>`
+      });
+
+      domString += `  
+        </li>
+        <li class="list-group-item">$${array[i].price.toFixed(2)}</li>
+        <li class="list-group-item"><button type="submit" id="button${array[i].itemId}" class="btn btn-primary add-to-cart">Add to Cart</button></li>
+      </ul>
+      <input type="hidden" name="itemId" value="${array[i].itemId}">
+      </form>
+      </div>
+      `
+      }
+  }
+  printToDom('#childCards', domString);
 }
 
 
-// Adult Card Container
-const buildAdultCards = (adultOveralls) => {
+// Card Container
+const buildAdultCards = (array) => {
     let domString = '';
 
-    for (let i = 0; i < adultOveralls.length; i++) {
-      if (adultOveralls[i].category === 'Adult') {
+    for (let i = 0; i < array.length; i++) {
+      
+      if (array[i].category === 'Adult') {
         domString += `<div class="card" style="width: 18rem;">
-                      <img class="card-img-top" src="${adultOveralls[i].imageUrl}" alt="">
+                      <img class="card-img-top" src="${array[i].imageUrl}" alt="">
                       <div class="card-body">
-                        <h5 class="card-title">${adultOveralls[i].name}</h5>
-                        <p class="card-text">${adultOveralls[i].description}</p>
+                        <h5 class="card-title">${array[i].name}</h5>
+                        <p class="card-text">${array[i].description}</p>
                       </div>
                       <form class="add-to-cart-form"> 
                       <ul class="list-group list-group-flush">
                       <li class="list-group-item">`
 
-        adultOveralls[i].availableColors.forEach(color => {
+        array[i].availableColors.forEach(color => {
           domString += `<div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="selectedColor" value="${color.color}">
                           <label class="form-check-label" for="selectedColor">
@@ -244,7 +269,7 @@ const buildAdultCards = (adultOveralls) => {
                       <li class="list-group-item">`
 
 
-        adultOveralls[i].availableSizes.forEach(size => {
+        array[i].availableSizes.forEach(size => {
         domString += `<div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="selectedSize" value="${size}">
                         <label class="form-check-label" for="selectedSize">${size}</label>
@@ -253,10 +278,10 @@ const buildAdultCards = (adultOveralls) => {
 
         domString += `  
           </li>
-          <li class="list-group-item">$${adultOveralls[i].price.toFixed(2)}</li>
-          <li class="list-group-item"><button type="submit" id="button${adultOveralls[i].itemId}" class="btn btn-primary add-to-cart">Add to Cart</button></li>
+          <li class="list-group-item">$${array[i].price.toFixed(2)}</li>
+          <li class="list-group-item"><button type="submit" id="button${array[i].itemId}" class="btn btn-primary add-to-cart">Add to Cart</button></li>
         </ul>
-        <input type="hidden" name="itemId" value="${adultOveralls[i].itemId}">
+        <input type="hidden" name="itemId" value="${array[i].itemId}">
         </form>
         </div>
         `
@@ -271,11 +296,9 @@ const randomNum = (max) => {
 
 //creates the domstring for the featured items bootstrap carousel
 const buildFeaturedItems = () => {
-    // random numbers array
-    let randomNums = [];
-    //push 5 random numbers to randomNums array
+    let randomNums = []; // random numbers array
     let i=0; 
-    do {
+    do {        //push 5 random numbers to randomNums array
         let generatedNumber = randomNum(items.length);
         if (randomNums.indexOf(generatedNumber) == -1) {
             randomNums.push(generatedNumber);
@@ -293,8 +316,7 @@ const buildFeaturedItems = () => {
     
     domString += `<div class="carousel-inner">`;
     
-    //loop to generate cards for carousel
-    for (let i=0; i < 5; i++) {
+    for (let i=0; i < 5; i++) {     //loop to generate cards for carousel
         domString +=  `
                 <div class="carousel-item${(i == 0) ? ` active` : ``}">
                 <img src="${items[randomNums[i]].imageUrl}" class="d-block w-50 float-left" alt="...">
@@ -316,6 +338,7 @@ const buildFeaturedItems = () => {
         </div>`;
         printToDom("#featured-items", domString);
 }
+
 // price filter event
 const filterPrice = () => {
   const buttonId = event.target.id
@@ -353,15 +376,38 @@ const filterPrice = () => {
   buildAdultCards(items);
 }
 
-
 const clickEvents = () => {
   document.querySelector('#lowHigh').addEventListener('click', filterPrice );
   document.querySelector('#highLow').addEventListener('click', filterPrice );
  };
 
+const updateCart = () => {
+    const cartArray = JSON.parse(sessionStorage.getItem('cart'));
+    document.querySelector('#cart-count').innerHTML = cartArray.length;
+}
+
 //callback function for add to cart submit button
 const addToCart = (event) => {
   event.preventDefault();
+
+  //check for missing data
+  if (!event.target.elements.selectedColor.value) {
+    $('#colorModal').modal('show');
+    return
+  } else if (!event.target.elements.selectedSize.value) {
+    $('#sizeModal').modal('show');
+    return
+  }
+
+  //create/get existing array
+  let cartArray = sessionStorage.getItem('cart');
+  cartArray = cartArray ? JSON.parse(cartArray) : [];
+
+  //check if item already in cart
+  if (cartArray.find(item => item.itemId == event.target.elements.itemId.value)) {
+    $('#inCartModal').modal('show');
+    return
+  }
 
   //create object from form data
   const addedItem = { 
@@ -371,10 +417,20 @@ const addToCart = (event) => {
     selectedSize: event.target.elements.selectedSize.value
   }
 
-  localStorage.setItem('item', JSON.stringify(addedItem));
+  //push new object
+  cartArray.push(addedItem);
+
+  //set array into localStorage
+  sessionStorage.setItem('cart', JSON.stringify(cartArray));
+
+  //update this button
   document.querySelector('#button' + event.target.elements.itemId.value).innerHTML = 'Added to Cart!';
-  return false;
+  document.querySelector('#button' + event.target.elements.itemId.value).classList.remove("btn-primary");
+  document.querySelector('#button' + event.target.elements.itemId.value).classList.add("btn-warning");
+  document.querySelector('#button' + event.target.elements.itemId.value).disabled = true;
+  updateCart();
 }
+
 
 //event listener for add to cart forms
 const cartListeners = () => {
@@ -392,6 +448,7 @@ const init = () => {
     buildRatingCards(reviews);
     cartListeners();
     clickEvents();
+    updateCart();
 }
 
 init();
