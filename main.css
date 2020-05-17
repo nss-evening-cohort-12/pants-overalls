@@ -316,16 +316,29 @@ body {
 	list-style: none;
     padding-top: 20px;
     text-align: center;
-}
+    }
 .contact-bar li {
     display: inline;
     padding-right: 15px;
  }
- .top-social-icons{
-    color: #333133;
-    width: 20%;
-    margin: 5vh auto;
-    text-align: center;
+.contact-social-icons {
+    margin-left: -40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contact-social-icons li {
     list-style-type: none;
-    
- }
+}
+.contact-social-icons {
+    width: 20%;
+    margin: 5vh auto
+}
+.contact-social-icons svg {
+    width: 2rem;
+    fill: #333133;
+}
+
+.map h5 {
+    text-align: center;
+}
