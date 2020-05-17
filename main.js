@@ -381,6 +381,7 @@ const clickEvents = () => {
   document.querySelector('#highLow').addEventListener('click', filterPrice );
  };
 
+// updates the number of items in the cart icon 
 const updateCart = () => {
     const cartArray = JSON.parse(sessionStorage.getItem('cart'));
     document.querySelector('#cart-count').innerHTML = cartArray.length;

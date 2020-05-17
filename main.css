@@ -279,9 +279,7 @@ body {
     padding: 10vh 10vw;
 }
 
-
 .footer-links, .payment-types, .social-icons {
-    margin-left: -40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -301,22 +299,28 @@ body {
 }
 
 .footer-links {
+    padding: 0 20%;
     flex: 1 1 100%;
 }
 
 .payment-types {
-    width: 50%;
+    width: 40%;
     margin: 5vh auto;
 }
 
 .social-icons {
     width: 20%;
-    margin: 5vh auto
+    margin: 5vh auto;
+    vertical-align: middle;
 }
 
 .social-icons svg {
     width: 2rem;
     fill:lightgray;
+}
+
+.social-icons svg:hover {
+  fill:white;
 }
 
 .copyright {
