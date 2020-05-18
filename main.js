@@ -1,3 +1,5 @@
+const pageName = location.pathname.split("/").slice(-1);
+
 const items = [
     {
         itemId: 1,
@@ -381,6 +383,7 @@ const clickEvents = () => {
   document.querySelector('#highLow').addEventListener('click', filterPrice );
  };
 
+// updates the number of items in the cart icon 
 const updateCart = () => {
     const cartArray = JSON.parse(sessionStorage.getItem('cart'));
     document.querySelector('#cart-count').innerHTML = cartArray.length;
@@ -431,6 +434,75 @@ const addToCart = (event) => {
   updateCart();
 }
 
+const displayCart = () => {
+  //get data from localStorage
+  const cartArray = JSON.parse(sessionStorage.getItem('cart'));
+
+  let domString = '';
+  let cartTotal = 0;
+  cartArray.forEach(cartItem => {
+    domString += `
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img class="cart-thumbnail" src="${items.find(item => item.itemId == cartItem.itemId).imageUrl}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <div class="row">
+                     <div class="col-8 text-left">
+                        <h4>${ cartItem.itemName }</h4>
+                          <span class="small">Color:</span> ${cartItem.selectedColor}<br>
+                          <span class="small">Size:</span> ${cartItem.selectedSize}
+                     </div>
+                     <p class="col-4 text-right"><span class="small">Price:</span> $${items.find(item => item.itemId == cartItem.itemId).price.toFixed(2)}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    `
+    cartTotal += items.find(item => item.itemId == cartItem.itemId).price
+  });
+  //cart price totals card
+  domString += `
+              <div class="card mb-3 w-50 float-right">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8 text-right">
+                        <h5>Subotal:</h5>
+                    </div>
+                    <div class="col-4 text-right">
+                          $${cartTotal.toFixed(2)}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8 text-right">
+                        <h5>Sales Tax:</h5>
+                    </div>
+                    <div class="col-4 text-right">
+                          $${(cartTotal.toFixed(2) * .0975).toFixed(2)}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-8 text-right">
+                        <h4>Total:</h4>
+                    </div>
+                    <div class="col-4 text-right">
+                          <strong>$${(cartTotal.toFixed(2) * 1.0975).toFixed(2)}</strong>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 text-right">
+                        <button class="btn btn-primary">Submit Payment</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+
+  printToDom('#cart-contents', domString);
+}
 
 //event listener for add to cart forms
 const cartListeners = () => {
@@ -442,13 +514,14 @@ const cartListeners = () => {
 }
 
 const init = () => {
-    buildAdultCards(items);
-    buildChildCards(items);
-    buildFeaturedItems();
+  if (pageName == 'adults.html') { buildAdultCards(items) };
+  if (pageName == 'children.html') { buildChildCards(items) };
+  if (pageName == 'index.html') { buildFeaturedItems() };
     buildRatingCards(reviews);
     cartListeners();
-    clickEvents();
+    if (pageName == 'adults.html' || pageName == 'children.html') { clickEvents() };
     updateCart();
+    if (pageName == 'cart.html') { displayCart() };
 }
 
 init();
