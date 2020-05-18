@@ -379,14 +379,6 @@ const filterPrice = () => {
       
   }
 
-
-  
-  const clickEvents = () => {
-    document.querySelector('#lowHigh').addEventListener('click', filterPrice );
-    document.querySelector('#highLow').addEventListener('click', filterPrice );
-    document.querySelector('#submitForm').addEventListener('click', submitForm);
-   };
-
 // price filter event
 const filterPrice = () => {
   const buttonId = event.target.id
@@ -427,6 +419,7 @@ const filterPrice = () => {
 const clickEvents = () => {
   document.querySelector('#lowHigh').addEventListener('click', filterPrice );
   document.querySelector('#highLow').addEventListener('click', filterPrice );
+  document.querySelector('#submitForm').addEventListener('click', submitForm);
  };
 
 const updateCart = () => {
