@@ -17,8 +17,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html">HOME <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./about.html">ABOUT</a>
@@ -35,11 +35,13 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
+              <a href="cart.html">
               <svg id="shopping-cart-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                 <path d="M14 36c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4zm-12-32v4h4l7.19 15.17-2.7 4.9c-.31.58-.49 1.23-.49 1.93 0 2.21 1.79 4 4 4h24v-4h-23.15c-.28 0-.5-.22-.5-.5 0-.09.02-.17.06-.24l1.79-3.26h14.9c1.5 0 2.81-.83 3.5-2.06l7.15-12.98c.16-.28.25-.61.25-.96 0-1.11-.9-2-2-2h-29.57l-1.9-4h-6.53zm32 32c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4z"/>
                 <path d="M0 0h48v48h-48z" fill="none"/>
               <span id="cart-count" class="badge badge-light">0</span>
-            </svg>
+              </svg>
+              </a>
             </li>
           </ul>
       </div>
@@ -47,7 +49,8 @@
     <!-- navbar end -->
     <h1 id="site-title">Cattywampus</h1>
    
-    <div class="main-content"></div>
+    <h2 class="text-center text-uppercase text-muted">Your Shopping Cart</h2>
+    <div id="cart-contents" class="w-50 mx-auto"></div>
 
 <!-- Begin Footer -->
 <div id="footer">
